@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data types in JavaScript</title>
+    <style>
+        * {
+            text-transform: capitalize;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Data types in JavaScript</h1>
+    <h2>we have a two deta types in javascprit</h2>
+    <ul>
+        <li>Primative data types
+            <ol>
+                <li>number</li>
+                <li>string</li>
+                <li>null</li>
+                <li>undefined</li>
+                <li>booloens</li>
+                <li>bigint</li>
+                <li>symbol</li>
+            </ol>
+        </li>
+    </ul>
+    <ul>
+        <li>non-Primative data types
+            <ol>
+                <li>arrey</li>
+                <li>object</li>
+            </ol>
+        </li>
+    </ul>
+    <script>
+        let age = 50 // number
+        console.log(age);
+        console.log(typeof (age));
+
+        let name = "ravi suthar" // string
+        console.log(name);
+        console.log(typeof (name));
+
+        let a = true //booloens
+        console.log(a);
+        console.log(typeof (a));
+
+        let b; //undefined
+        console.log(b);
+        console.log(typeof (b));
+
+        let c = null //null
+        console.log(c);
+        console.log(typeof (c));
+
+        let d = 111111111111111n //bigint
+        console.log(d);
+        console.log(typeof (d));
+
+        let hello = Symbol('hello') //symbol
+        console.log(hello);
+        console.log(typeof (hello));
+
+        let fruit = ["apple","mango","banana"];
+        console.log(fruit);
+        console.log(typeof(fruit));
+
+        let number =
+         {
+            a: 12,c : 13,d:18
+
+        }
+        console.log(number)
+        console.log(typeof(number))
+    </script>
+</body>
+
+</html>
