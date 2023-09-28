@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task first</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: lightcyan;
+        }
+        .box{
+            width: 500px;
+            border: 2px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            box-shadow: 0 0 10px gray;
+            box-sizing: border-box;
+            padding: 20px;
+            background-color: lightcoral;
+        }
+        input{
+            width: 100%;
+            margin: 10px 0;
+            outline: none;
+            border: 1px solid black;
+            border-radius: 20px;
+            height: 40px;
+            padding: 10px 20px;
+            font-size: 15px;
+        }
+        button{
+            width: 46%;
+            margin: 8px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 30px;
+            height: 30px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" id="first" value="" placeholder="ADD YOUR NUMBER">
+        <input type="text" id="second" value="" placeholder="ADD YOUR NUMBER">
+        <button onclick='plus()'>+</button>
+        <button onclick='sub()'>-</button>
+        <button onclick='div()'>/</button>
+        <button onclick='multi()'>*</button>
+    </div>
+    <script>
+        function plus() {
+            let first = document.getElementById("first").value;
+            let second = document.getElementById("second").value;
+            alert(Number(document.getElementById("first").value)+  +Number(document.getElementById("second").value));
+        }
+
+        function sub() {
+            let first = document.getElementById("first").value;
+            let second = document.getElementById("second").value;
+            alert(Number(document.getElementById("first").value) - Number(document.getElementById("second").value));
+        }
+
+        function div() {
+            let first = document.getElementById("first").value;
+            let second = document.getElementById("second").value;
+            alert(Number(document.getElementById("first").value) - Number(document.getElementById("second").value));
+        }
+
+        function multi() {
+            let first = document.getElementById("first").value;
+            let second = document.getElementById("second").value;
+            alert(Number(document.getElementById("first").value) * Number(document.getElementById("second").value));
+        }
+    </script>
+</body>
+</html>
