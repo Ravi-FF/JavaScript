@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>operator in javascript</title>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        h1 {
+            background-color: crimson;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Operatore in javascript</h2>
+    <h1>JavaScript-Arithmatic-Operators</h1>
+    <img src="./img/JavaScript-Arithmatic-Operators.png" alt="">
+    <hr>
+
+    <h1>JavaScript-Assignment-Operators</h1>
+    <img src="./img/JavaScript-Assignment-Operators.png" alt="">
+    <hr>
+
+    <h1>JavaScript-Comparison-Operatores</h1>
+    <img src="./img/comparison operator.jpg" alt="">
+    <hr>
+
+    <h1>JavaScript-Logical-Operator</h1>
+    <img src="./img/JavaScript-Logical-Operator.png" alt="">
+</body>
+
+<script>
+    // JavaScript-Arithmatic-Operators
+    var number1 = 15;
+    var number2 = 20;
+    console.log(number1 + number2); //addition
+
+    var number1 = 35;
+    var number2 = 20;
+    console.log(number1 - number2); //subtraction
+
+    var number1 = 3;
+    var number2 = 2;
+    console.log(number1 * number2); //multiplication
+
+    var number1 = 10;
+    var number2 = 2;
+    console.log(number1 / number2); //division
+
+    var number1 = 11;
+    var number2 = 2;
+    console.log(number1 % number2); //modulus / remainder
+
+    var number1 = 11;
+    var newnumber = number1++  +3 //ese hm post fix increment operator bolte hai jiske ander jo result aane wala hota hai tb uske ander value chane hoti h
+    console.log(number1);
+    console.log(newnumber);
+
+    var number1 = 11;
+    var newnumber = ++number1  +3 //ese hm pre fix increment operator bolte hai jiske ander jo result aane wala hota hai use result ko vo new variable me daal deta hai
+    console.log(number1);
+    console.log(newnumber);
+
+    var number1 = 10;
+    var newnumber = number1-- -2 //ese hm post fix increment operator bolte hai jiske ander jo result aane wala hota hai tb uske ander value chane hoti h
+    console.log(number1);
+    console.log(newnumber);
+
+    var number1 = 10;
+    var newnumber = --number1//ese hm pre fix increment operator bolte hai jiske ander jo result aane wala hota hai use result ko vo new variable me daal deta hai
+    console.log(number1);
+    console.log(newnumber);
+
+
+
+    // JavaScript-Assignment-Operators
+    var numner1 = 10; // assignment - opeators
+
+    // JavaScript-Comparison-Operatores
+    var number1 = 5;
+    var number2 = 6;
+    console.log(number1>number2) //greaterthan
+
+    var number1 = 5;
+    var number2 = 6;
+    console.log(number1<number2) //lessthan
+
+    var number1 = 5;
+    var number2 = "5";
+    console.log(number1==number2) //equal to (double == chake only value of the var)
+
+    var number1 = 5;
+    var number2 = "5";
+    console.log(number1===number2) //equal value and same type (triple === chake value and type of the var)
+
+    var number1 = 5;
+    var number2 = 6;
+    console.log(number1<=number2) //lessthan equal to
+
+    var number1 = 5;
+    var number2 = 6;
+    console.log(number1>=number2) //greaterthan equal to
+
+    var number1 = 6;
+    var number2 = "6";
+    console.log(number1==number2) // not equal to (shai ko galt and glt ko shai kehta hai)
+
+    // JavaScript-Logical-Operator
+
+    var ournumber1 = true;
+    var ournumber2 =false;
+    console.log(ournumber1 && ournumber2); //&&(and operator) - iske ander agr hamre paas dono candication ture hai to hi true dega other wise false dega
+   
+    var ournumber1 = true ;
+    var ournumber2 = false;
+    console.log(ournumber1 || ournumber2); //  ||(or operator) - iske ander agr hamre paas dono candication me ek bhi true hoga to true dega.
+
+    var ournumber1 = 5 ;
+    var ournumber2 = 8;
+    console.log(!(ournumber1>ournumber2)); //  ||(not operator) -shai ko glt and glt ko shai batata hai 
+</script>
+
+</html>
