@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>if else condication</title>
-</head>
+    <style>
+        body {
+            background-color: lightcyan;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+        h1 {
+            text-align: center;
+            text-transform: capitalize;
+        }
+    </style>
+    <div class="first">
+        <h1 id="result"></h1>
+    </div>
+    </head>
+
 <body>
     <script>
-        // var age = 18;
-        prompt = "enter your age"
-        if (prompt => 18) {
-            "you can drive car"
-        }
-        console.log(prompt)
+        //simple if/else condication in javascprit
+        let age = +prompt("Enter your age....!");
+        if (age >= 18) {
+            document.getElementById("result").innerHTML = ' congratulation....! you can drive car';
+        } else
+            document.getElementById("result").innerHTML = "ooffooo....! you can not drive car"
+
+        // nested if/else condication in javascprit
+
+        let number1 = 16;
+        let number2 = 10;
+        if(number1 >=16){
+            console.log('you are right');
+            if (number1 > 10) {
+                console.log("your result is right");
+            }else
+            console.log("your result is wrong");
+        }else
+        console.log("you are wrong");
+        
+       let hello = number1 > 12 != number1 > 17 ? true:false;  //its called turnery operator 
+       console.log(hello);
+
     </script>
 </body>
 </html>
