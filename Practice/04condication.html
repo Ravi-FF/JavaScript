@@ -27,8 +27,8 @@
 <body>
     <script>
         //simple if/else condication in javascprit
-        let age = +prompt("Enter your age....!");
-        if (age >= 18) {
+        let age1 = +prompt("Enter your age....!");
+        if (age1>= 18) {
             document.getElementById("result").innerHTML = ' congratulation....! you can drive car';
         } else
             document.getElementById("result").innerHTML = "ooffooo....! you can not drive car"
@@ -38,8 +38,7 @@
         let number1 = 16;
         let number2 = 10;
         if(number1 >=16){
-            console.log('you are right');
-            if (number1 > 10) {
+            if (number1 >= 10) {
                 console.log("your result is right");
             }else
             console.log("your result is wrong");
@@ -49,6 +48,23 @@
        let hello = number1 > 12 != number1 > 17 ? true:false;  //its called turnery operator 
        console.log(hello);
 
+       let age = 18;
+       let youHavecar = "yes"
+       if (age<=15) {
+        console.log("you can drive car")
+       } else if(youHavecar == "yes"){
+        console.log("you are right you can drive your car")
+       }
+       else{
+        console.log("you can not drive car")
+       }
+
+       let login = 1;
+       if(login ==0){
+        document.write("login");
+       }else{
+        document.write("logout")
+       }
     </script>
 </body>
 </html>
