@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch in js</title>
+    <style>
+        body{
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="result"></h1>
+</body>
+<script>
+    let age = Number(prompt("enter your age.?"));
+    switch (age) {
+        case 18:
+            document.getElementById("result").innerHTML = ("you can drive car");
+            break;
+        case 17:
+            document.getElementById("result").innerHTML = ("you can  drive car");
+            break;
+        default:
+        document.getElementById("result").innerHTML = ("you can not drive car");
+            break;
+    }
+</script>
+
+</html>
