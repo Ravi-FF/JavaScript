@@ -66,40 +66,42 @@
 <body>
     <div class="center">
         <h1>marksheet</h1>
-            <div class="first">
-                <label for="text">maths :-</label>
-                <input type="text" class="total" value="" id="text" required>
-            </div>
-            <div class="first">
-                <label for="text">science :-</label>
-                <input type="text" class="total" value="" id="text1" required>
-            </div>
-            <div class="first">
-                <label for="text">computer science :-</label>
-                <input type="text" class="total" value="" id="text2" required>
-            </div>
-            <div class="first">
-                <label for="text">english :-</label>
-                <input type="text" class="total" value="" id="text3" required>
-            </div>
-            <div class="first">
-                <label for="text">hindi :-</label>
-                <input type="text" class="total" value="" id="text4" required>
-            </div>
-            <div class="first">
-                <label for="text">gujrati :-</label>
-                <input type="text" class="total" value="" id="text5" required>
-            </div>
-            <div class="first">
-                <label for="text">social science :-</label>
-                <input type="text" class="total" value="" id="text6" required>
-            </div>
-            <div class="btn"><button onclick=total()>total</button></div>
-            <div class="result">
-                <h3 id="add"></h1>
-                <h3 id="prasendage"></h1>
-                <h4 id="grade"></h4>
-            </div>
+        <div class="first">
+            <label for="text">maths :-</label>
+            <input type="number" class="total" value="" id="text" required>
+        </div>
+        <div class="first">
+            <label for="text">science :-</label>
+            <input type="number" class="total" value="" id="text1" required>
+        </div>
+        <div class="first">
+            <label for="text">computer science :-</label>
+            <input type="number" class="total" value="" id="text2" required>
+        </div>
+        <div class="first">
+            <label for="text">english :-</label>
+            <input type="number" class="total" value="" id="text3" required>
+        </div>
+        <div class="first">
+            <label for="text">hindi :-</label>
+            <input type="number" class="total" value="" id="text4" required>
+        </div>
+        <div class="first">
+            <label for="text">gujrati :-</label>
+            <input type="number" class="total" value="" id="text5" required>
+        </div>
+        <div class="first">
+            <label for="text">social science :-</label>
+            <input type="number" class="total" value="" id="text6" required>
+        </div>
+        <div class="btn"><button onclick=total()>total</button></div>
+        <div class="result">
+            <h3 id="add">
+                </h1>
+                <h3 id="prasendage">
+                    </h1>
+                    <h4 id="grade"></h4>
+        </div>
     </div>
     <script>
         function total() {
@@ -107,7 +109,7 @@
 
             document.getElementById("add").innerHTML = total;
             let value = document.getElementById("prasendage").innerHTML = total * 100 / 700;
-            if (value<=33) {
+            if (value <= 33) {
                 document.getElementById("prasendage").innerHTML = "you are fail";
             } else if (value <= 50) {
                 document.getElementById("grade").innerHTML = "C Grade"
@@ -117,11 +119,11 @@
                 document.getElementById("grade").innerHTML = "A Grade"
             } else if (value <= 100) {
                 document.getElementById("grade").innerHTML = "A++ Grade"
-            } else if (value>=100) {
+            } else if (value >= 100) {
                 document.getElementById("grade").innerHTML = "Please chake your number again....!"
             }
             else {
-                document.getElementById("prasendage").innerHTML = value * 100 / 700 +"%";
+                document.getElementById("prasendage").innerHTML = value * 100 / 700;
             }
         }
 

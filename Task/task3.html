@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-3</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-transform: capitalize;
+    }
+
+    body {
+        background-color: lavender;
+    }
+
+    form {
+        position: absolute;
+        padding: 20px 30px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        background-color: lightcyan;
+        box-shadow: 0 0 5px black;
+        border: 2px solid black;
+    }
+
+    .num {
+        margin: 10px 0;
+    }
+
+    input,button{
+        width: 300px;
+        outline: none;
+        border: none;
+        border: 1px solid red;
+        padding: 0 10px;
+        line-height: 30px;
+        margin: 15px 0;
+        height: 30px;
+    }
+    button{
+        width: 150px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #result-1,
+    #result-2 {
+        position: absolute;
+        left: 8%;
+        color: red;
+        font-size: 13px;
+    }
+
+    #result-1 {
+        top: 40%;
+    }
+
+    #result-2 {
+        top: 64%;
+    }
+    h2{
+        text-align: center;
+    }
+</style>
+
+<body>
+    <form action="" onsubmit= "return submitForm()">
+        <h2>Registration Form</h2>
+        <input type="text" id="input-1" class="input" placeholder="First Name"><span id="result-1"></span><br>
+        <input type="text" id="input-2" class="input" placeholder="last Name"><span id="result-2"></span><br>
+        <button type="submit">Submit</button>
+        <button type="reset" onclick="resatBtn()">Resat</button>
+    </form>
+    <script>
+        let firstName = document.getElementById("input-1");
+        let lastName = document.getElementById("input-2");
+        let result=1;
+        function submitForm() {
+            if (firstName.value == "") {
+                document.getElementById("result-1").innerHTML = "Enter Your First Name...."
+                result =0; // return = false
+            }else if (firstName.value.length < 3) {
+                document.getElementById("result-1").innerHTML = "Please Enter min 3 characters"
+                result =0; //return = false
+            }
+             else {
+                document.getElementById("result-1").innerHTML = ""
+                result =1; //return=true
+            }
+            if (lastName.value == "") {
+                document.getElementById("result-2").innerHTML = "Enter Your Last Name...."
+                result =0; //return = false
+            }else if (lastName.value.length < 3) {
+                document.getElementById("result-2").innerHTML = "Please Enter min 3 characters"
+                result =0; //return = false
+            }
+            else {
+                document.getElementById("result-2").innerHTML = ""
+                result=1; //return=true
+            }
+            if(result){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function resatBtn() {
+            document.getElementById("result-2").innerHTML = ""
+            document.getElementById("result-1").innerHTML = ""
+        }
+    </script>
+</body>
+
+</html>
