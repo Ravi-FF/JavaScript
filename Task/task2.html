@@ -18,15 +18,22 @@
             height: 90vh;
         }
 
-        h1 {
+        h1,
+        p {
             text-align: center;
+        }
+
+        p {
+            color: red;
+            margin: 10px 0;
         }
 
         .center {
             width: 900px;
+            background-color: whitesmoke;
             padding: 20px 50px;
-            border: 2px solid red;
             position: relative;
+            box-shadow: 0 0 8px gray;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -35,12 +42,18 @@
         .first {
             display: flex;
             justify-content: space-between;
-            margin: 15px 0;
+            margin: 20px 0;
+        }
+
+        span {
+            background-color: red;
+            color: white;
+            padding: 5px 20px;
         }
 
         input {
             width: 50%;
-            height: 25px;
+            height: 30px;
             border-radius: 5px;
             outline: none;
             border: 1px solid black;
@@ -59,71 +72,92 @@
         .result {
             display: flex;
             justify-content: space-between;
+            margin: 20px 0;
         }
     </style>
 </head>
 
 <body>
     <div class="center">
-        <h1>marksheet</h1>
-        <div class="first">
-            <label for="text">maths :-</label>
-            <input type="number" class="total" value="" id="text" required>
-        </div>
-        <div class="first">
-            <label for="text">science :-</label>
-            <input type="number" class="total" value="" id="text1" required>
-        </div>
-        <div class="first">
-            <label for="text">computer science :-</label>
-            <input type="number" class="total" value="" id="text2" required>
-        </div>
-        <div class="first">
-            <label for="text">english :-</label>
-            <input type="number" class="total" value="" id="text3" required>
-        </div>
-        <div class="first">
-            <label for="text">hindi :-</label>
-            <input type="number" class="total" value="" id="text4" required>
-        </div>
-        <div class="first">
-            <label for="text">gujrati :-</label>
-            <input type="number" class="total" value="" id="text5" required>
-        </div>
-        <div class="first">
-            <label for="text">social science :-</label>
-            <input type="number" class="total" value="" id="text6" required>
-        </div>
-        <div class="btn"><button onclick=total()>total</button></div>
-        <div class="result">
-            <h3 id="add">
-                </h1>
-                <h3 id="prasendage">
-                    </h1>
-                    <h4 id="grade"></h4>
-        </div>
+        <form action="" onsubmit="return submitAll()">
+            <h1>marksheet</h1> <span>max-mark : 100</span>
+            <p id="top"></p>
+            <div class="first">
+                <label for="text">maths :-</label>
+                <input type="number" class="total" id="text">
+            </div>
+            <div class="first">
+                <label for="text">science :-</label>
+                <input type="number" class="total" id="text1">
+            </div>
+            <div class="first">
+                <label for="text">computer science :-</label>
+                <input type="number" class="total" id="text2">
+            </div>
+            <div class="first">
+                <label for="text">english :-</label>
+                <input type="number" class="total" id="text3">
+            </div>
+            <div class="first">
+                <label for="text">hindi :-</label>
+                <input type="number" class="total" id="text4">
+
+            </div>
+            <div class="btn"><button type="submit">total</button></div>
+            <div class="result">
+                <h3 id="add">Total number</h3>
+                <h3 id="percentage">percentage</h3>
+                <h3 id="grade">grade</h3>
+            </div>
+        </form>
     </div>
     <script>
-        function total() {
-            let total = (Number(document.getElementById("text").value) + Number(document.getElementById("text1").value) + Number(document.getElementById("text2").value) + Number(document.getElementById("text3").value) + Number(document.getElementById("text4").value) + Number(document.getElementById("text5").value) + Number(document.getElementById("text6").value));
-
-            document.getElementById("add").innerHTML = total;
-            let value = document.getElementById("prasendage").innerHTML = total * 100 / 700;
-            if (value <= 33) {
-                document.getElementById("prasendage").innerHTML = "you are fail";
-            } else if (value <= 50) {
-                document.getElementById("grade").innerHTML = "C Grade"
-            } else if (value <= 75) {
-                document.getElementById("grade").innerHTML = "B Grade"
-            } else if (value <= 90) {
-                document.getElementById("grade").innerHTML = "A Grade"
-            } else if (value <= 100) {
-                document.getElementById("grade").innerHTML = "A++ Grade"
-            } else if (value >= 100) {
-                document.getElementById("grade").innerHTML = "Please chake your number again....!"
+        let maths = document.getElementById("text");
+        let science = document.getElementById("text1");
+        let comScience = document.getElementById("text2");
+        let english = document.getElementById("text3");
+        let hindi = document.getElementById("text4");
+        function submitAll() {
+            let totalValue = Number(maths.value) + Number(science.value) + Number(english.value) + Number(comScience.value) + Number(hindi.value);
+            if (totalValue <= 165) {
+                document.getElementById("add").innerHTML = totalValue;
+                document.getElementById("grade").innerHTML = "failed"
+                document.getElementById("top").innerHTML = "failed"
+                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
+                return false
             }
-            else {
-                document.getElementById("prasendage").innerHTML = value * 100 / 700;
+            else if (totalValue <= 200) {
+                document.getElementById("add").innerHTML = totalValue;
+                document.getElementById("grade").innerHTML = "c grade"
+                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
+                document.getElementById("top").innerHTML = "passed"
+                return false
+            } else if (totalValue <= 300) {
+                document.getElementById("add").innerHTML = totalValue;
+                document.getElementById("grade").innerHTML = "b grade"
+                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
+                document.getElementById("top").innerHTML = "passed"
+                return false
+            } else if (totalValue <= 500) {
+                document.getElementById("add").innerHTML = totalValue;
+                document.getElementById("grade").innerHTML = "A++ grade"
+                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
+                document.getElementById("top").innerHTML = "passed"
+                return false
+            }
+            else if (totalValue <= 400) {
+                document.getElementById("add").innerHTML = totalValue;
+                document.getElementById("grade").innerHTML = "A grade"
+                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
+                document.getElementById("top").innerHTML = "passed"
+                return false
+            }
+            else if (totalValue >= 501) {
+                document.getElementById("add").innerHTML = "";
+                document.getElementById("grade").innerHTML = ""
+                document.getElementById("percentage").innerHTML = "";
+                document.getElementById("top").innerHTML = "Please enter valid number"
+                return false
             }
         }
 
