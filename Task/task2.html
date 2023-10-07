@@ -117,38 +117,32 @@
         let comScience = document.getElementById("text2");
         let english = document.getElementById("text3");
         let hindi = document.getElementById("text4");
+
         function submitAll() {
             let totalValue = Number(maths.value) + Number(science.value) + Number(english.value) + Number(comScience.value) + Number(hindi.value);
+            document.getElementById("add").innerHTML = totalValue;
+            let percentage = totalValue * 100 / 500 + "%"
+            document.getElementById("percentage").innerHTML = percentage;
             if (totalValue <= 165) {
-                document.getElementById("add").innerHTML = totalValue;
                 document.getElementById("grade").innerHTML = "failed"
                 document.getElementById("top").innerHTML = "failed"
-                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
                 return false
             }
             else if (totalValue <= 200) {
-                document.getElementById("add").innerHTML = totalValue;
                 document.getElementById("grade").innerHTML = "c grade"
-                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
                 document.getElementById("top").innerHTML = "passed"
                 return false
             } else if (totalValue <= 300) {
-                document.getElementById("add").innerHTML = totalValue;
                 document.getElementById("grade").innerHTML = "b grade"
-                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
                 document.getElementById("top").innerHTML = "passed"
                 return false
             } else if (totalValue <= 500) {
-                document.getElementById("add").innerHTML = totalValue;
                 document.getElementById("grade").innerHTML = "A++ grade"
-                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
                 document.getElementById("top").innerHTML = "passed"
                 return false
             }
             else if (totalValue <= 400) {
-                document.getElementById("add").innerHTML = totalValue;
                 document.getElementById("grade").innerHTML = "A grade"
-                document.getElementById("percentage").innerHTML = totalValue * 100 / 500 + "%";
                 document.getElementById("top").innerHTML = "passed"
                 return false
             }
@@ -160,7 +154,6 @@
                 return false
             }
         }
-
     </script>
 </body>
 
