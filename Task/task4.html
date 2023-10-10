@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task4</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container{
+            width: 500px;
+            padding:20px;
+            box-shadow: 0 0 10px gray;
+        }
+        input{
+            height: 30px;
+            width: 100%;
+            border: 1px solid black;
+            outline: none;
+            margin: 8px 0;
+            padding: 15px;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="first" placeholder="First Name" onblur =firstName()><span id="forfirstname"></span>
+        <input type="text" id="last" placeholder="Last Name" onblur=lastName()><span id="forlastname"></span>
+        <input type="number" id="number" placeholder="Number" onblur=number()><span id="fornumber"></span>
+        <input type="password" id="password" placeholder="password" onblur=password()><span id="forpassword"></span>
+    </div>
+    <script>
+        let first = document.getElementById("first");
+        let last = document.getElementById("last");
+        let mnumber = document.getElementById("number");
+        let myemail = document.getElementById("Email");
+        let mypassword = document.getElementById("password");
+        function firstName() {
+            if (first.value == "") {
+                document.getElementById("forfirstname").innerText = "Please Enter Your First Name"
+            } else {
+                document.getElementById("forfirstname").innerText = ""
+            }
+        }
+        function lastName() {
+            if (last.value == "") {
+                document.getElementById("forlastname").innerText = "Please Enter Your Last Name"
+            } else {
+                document.getElementById("forlastname").innerText = ""
+            }
+        }
+        function number() {
+            if (mnumber.value == "") {
+                document.getElementById("fornumber").innerText = "Please Enter Your Mobile Number"
+            }else if(mnumber.value.length<=10){
+                document.getElementById("fornumber").innerText = "Please Enter Valid Mobile Number"
+            } 
+            else {
+                document.getElementById("fornumber").innerText = ""
+            }
+        }
+        function password() {
+            if (mypassword.value == "") {
+                document.getElementById("forpassword").innerText = "Please Enter Your Password"
+            } else if(mypassword.value.length <=10){
+                document.getElementById("forpassword").innerText = "10 digits is mandatory"
+            }
+            else {
+                document.getElementById("forpassword").innerText = ""
+            }
+        }
+    </script>
+</body>
+</html>
