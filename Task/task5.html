@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascprit form validaction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            text-transform: capitalize;
+        }
+        body{
+            /* height: 100vh; */
+        }
+        h1 {
+            text-align: center;
+            margin: 50px 0;
+        }
+        input {
+            height: 30px;
+            padding: 0 10px;
+            /* width: 100%; */
+            /* margin: 10px 0; */
+        }
+        label{
+            display: block;
+            margin: 10px 0;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 20px 50px;
+        }
+        input{
+            border: 1px solid black;
+            outline: none;
+            border-radius: 5px;
+        }
+        span{
+            display: block;
+            margin: 10px 0;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>javascprit form validaction with the help of redux</h1>
+    <div class="container">
+        <form>
+            <div class="item-1">
+                <label for="email">email : </label>
+            <input type="email" id="name" onblur="validactionemail(this)" placeholder="abcd@gamil.com">
+            <span id="error1"></span>
+            </div>
+            <div class="item-1">
+                <label for="tel">telephone</label>
+                <input type="tel" id="number"  onblur="validactionnumber(this)" placeholder="123-456-7890">
+                <span id="error2"></span>
+            </div>
+            <div class="item-1">
+                <label for="password">password</label>
+                <input type="password" id="password" onblur="validactiopassword(this)" placeholder="ACBD@123abcs">
+                <span id="error3"></span>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validactionemail(a) {
+            let email = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email.test(a.value)) {
+                document.getElementById("error1").innerText = "";
+            } else {
+                document.getElementById("error1").innerText = "enter valid Email";
+                document.getElementById("error1").style.color = "red";
+            }
+        }
+        function validactionnumber(a) {
+            let tel = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}/;
+            if (tel.test(a.value)) {
+                document.getElementById("error2").innerText = "";
+            } else {
+                document.getElementById("error2").innerText = "enter valid number";
+                document.getElementById("error2").style.color = "red";   
+            }
+        }
+        function validactiopassword(a) {
+            let password =/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+            if (password.test(a.value)) {
+                document.getElementById("error3").innerText = "";
+            } else {
+                document.getElementById("error3").innerText = "enter valid password";
+                document.getElementById("error3").style.color = "red";   
+            }
+        }    </script>
+</body>
+</html>
