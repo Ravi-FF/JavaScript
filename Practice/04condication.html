@@ -14,6 +14,7 @@
             align-items: center;
             height: 90vh;
         }
+
         h1 {
             text-align: center;
             text-transform: capitalize;
@@ -22,13 +23,13 @@
     <div class="first">
         <h1 id="result"></h1>
     </div>
-    </head>
+</head>
 
 <body>
     <script>
         //simple if/else condication in javascprit
         let age1 = +prompt("Enter your age....!");
-        if (age1>= 18) {
+        if (age1 >= 18) {
             document.getElementById("result").innerHTML = ' congratulation....! you can drive car';
         } else
             document.getElementById("result").innerHTML = "ooffooo....! you can not drive car"
@@ -37,34 +38,79 @@
 
         let number1 = 16;
         let number2 = 10;
-        if(number1 >=16){
+        if (number1 >= 16) {
             if (number1 >= 10) {
                 console.log("your result is right");
-            }else
-            console.log("your result is wrong");
-        }else
-        console.log("you are wrong");
+            } else
+                console.log("your result is wrong");
+        } else
+            console.log("you are wrong");
+
+        let hello = number1 > 12 != number1 > 17 ? true : false;  //its called turnery operator 
+        console.log(hello);
+
+        let age = 18;
+        let youHavecar = "yes"
+        if (age <= 15) {
+            console.log("you can drive car")
+        } else if (youHavecar == "yes") {
+            console.log("you are right you can drive your car")
+        }
+        else {
+            console.log("you can not drive car")
+        }
+
+        let login = 1;
+        if (login == 0) {
+            document.write("login");
+        } else {
+            document.write("logout");
+        }
         
-       let hello = number1 > 12 != number1 > 17 ? true:false;  //its called turnery operator 
-       console.log(hello);
+        //chake which is the biggest number
+        x = 10, y = 20, z = 300, a = 400, b = 500, c = 600;
+        if (x > y) {
+            if (x > z) {
+                document.write(x);
+            } else if (x > a) {
+                document.write(x)
+            } else if (x > b) {
+                document.write(x)
+            }
+            else {
+                document.write(c)
+            }
+        } else if (y > z) {
+            if (y > a) {
+                document.write(y)
+            } else if (y > b) {
+                document.write(y)
+            }
+            else {
+                document.write(c)
+            }
+        }
+        else if (z > a) {
+            if (z > b) {
+                document.write(z)
+            }
+            else {
+                document.write(c)
+            }
+        } else if (a > b) {
+            if (a > c) {
+                document.write(a)
+            } else {
+                document.write(c)
+            }
+        } else if (b > c) {
+            document.write(b)
+        }
+        else {
+            document.write(c)
 
-       let age = 18;
-       let youHavecar = "yes"
-       if (age<=15) {
-        console.log("you can drive car")
-       } else if(youHavecar == "yes"){
-        console.log("you are right you can drive your car")
-       }
-       else{
-        console.log("you can not drive car")
-       }
-
-       let login = 1;
-       if(login ==0){
-        document.write("login");
-       }else{
-        document.write("logout")
-       }
+        }
     </script>
 </body>
+
 </html>

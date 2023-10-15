@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <!--------- for name ----------->
+    <h1 id="h" onmouseleave="removeColor()" onmouseenter="addColor()">RAVI SUTHAR</h1>
+    <button onclick="addColor()">ADD COLOR</button>
+    <button onclick="removeColor()">REMOVE COLOR</button>
+    <button onclick="addremoveColor()" id="btnchange">ADD COLOR</button><br><br><br><br>
+
+    <!----------- for paragraph ----------->
+    <p id="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus voluptatem ut dignissimos atque ad
+        dolorem molestias quibusdam, doloribus quas nulla expedita aperiam cumque porro et omnis fuga? Ea fuga rem
+        possimus accusamus sapiente totam architecto magni dolorem? Eius veniam repellendus quia in unde sed. Omnis
+        voluptates eum minus voluptatem facilis.</p>
+    <button onclick="hideText()">HIDE TEXT</button>
+    <button onclick="showText()">SHOW TEXT</button>
+    <button onclick="hideshowTEXT()" id="btntext">HIDE TEXT</button><br><br><br><br>
+    <!------- for image-------- -->
+    <img src="" alt="img" id="img" width="100px" height="100px"><br><br>
+    <button onclick="showImg()">GET IMAGE</button>
+    <button onclick="hideImg()">HIDE IMAGE</button>
+    <button onclick="hideshowImg()" id="mybtn">HIDE IMAGE</button>
+</body>
+<script>
+
+    //---------------------for name---------------------
+    let color = document.getElementById("h");
+    let btnchange = document.getElementById("btnchange")
+    function addColor() {
+        color.style.color = ("red");
+        // document.getElementById("h").classList.add("red")
+        // document.getElementById("h").classList.toggle("red")
+    }
+    function removeColor() {
+        color.style.color = ("");
+    }
+    function addremoveColor() {
+        if (color.style.color == "") {
+            color.style.color = ("red")
+            btnchange.innerText = "REMOVE COLOR"
+        } else {
+            color.style.color = ("")
+            btnchange.innerText = "ADD COLOR"
+        }
+    }
+
+    //---------------for pragraph----------------------
+    let pra = document.getElementById("p")
+    let changebtn = document.getElementById("btntext")
+    function hideText() {
+        pra.style.visibility = "hidden"
+    }
+    function showText() {
+        pra.style.visibility = "visible"
+    }
+    function hideshowTEXT() {
+        if (pra.style.visibility == "hidden"
+        ) {
+            pra.style.visibility = "visible"
+            changebtn.innerText = "HIDE TEXT"
+        } else {
+            pra.style.visibility = "hidden"
+            changebtn.innerText = "SHOW TEXT"
+        }
+    }
+
+    //---------------for image---------------------
+    let myImg = document.getElementById("img");
+    let changeimg = document.getElementById("mybtn")
+    function showImg() {
+        myImg.src = "m4.jpg"
+    }
+    function hideImg() {
+        myImg.src = ""
+    }
+    function hideshowImg() {
+        if (myImg.src=="") {
+            myImg.src = "m4.jpg"
+        } else {
+            myImg.src = "bottom2.jpg"
+        }
+    }
+</script>
+
+</html>
