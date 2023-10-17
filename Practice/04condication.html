@@ -28,11 +28,11 @@
 <body>
     <script>
         //simple if/else condication in javascprit
-        let age1 = +prompt("Enter your age....!");
-        if (age1 >= 18) {
-            document.getElementById("result").innerHTML = ' congratulation....! you can drive car';
-        } else
-            document.getElementById("result").innerHTML = "ooffooo....! you can not drive car"
+        // let age1 = +prompt("Enter your age....!");
+        // if (age1 >= 18) {
+        //     document.getElementById("result").innerHTML = ' congratulation....! you can drive car';
+        // } else
+        //     document.getElementById("result").innerHTML = "ooffooo....! you can not drive car"
 
         // nested if/else condication in javascprit
 
@@ -68,7 +68,9 @@
         }
         
         //chake which is the biggest number
-        x = 10, y = 20, z = 300, a = 400, b = 500, c = 600;
+        x = 10, y = 20, z =100030, a = 4, b = 500, c = 600;
+        let ans =(x>y&&x>z&&x>a&&x>b&&x>c)?x:(y>z&&y>a&&y>b&&y>c)?y:(z>a&&z>b&&z>c)?z:(a>b&&a>c)?a:c
+        console.log(ans)
         if (x > y) {
             if (x > z) {
                 document.write(x);
