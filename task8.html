@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            width: 60%;
+            text-align: center;
+            box-shadow: 0 0 8px grey;
+            height: 500px;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+        textarea{
+            width: 50%;
+            border-radius: 10px;
+            height: 100px;
+            padding: 10px 20px;
+            margin: 20px 0;
+            font-size: 16px;
+            border: 2px solid brown;
+            outline: none;
+        }
+        button{
+            padding: 8px 30px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        #result{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <textarea id="textarea" placeholder="write any text here"></textarea>
+        <div><span>Total-words :  </span><span id="result"></span></div>
+        <div class="btn"><button onclick="clickme()" class="value">count word</button></div>
+        <textarea id="aftertextarea" placeholder="After remove space"></textarea>
+        <div><span>After remove space-words :  </span><span id="result2"></span></div>
+    </div>
+
+    <script>
+        function clickme() {
+            let textarea = document.getElementById("textarea").value;
+           document.getElementById("result").innerText=textarea.length;
+           let removespace =textarea.replace(/\s+/g, ' ');
+           document.getElementById("aftertextarea").innerText=removespace;
+           document.getElementById("result2").innerText=removespace.length;
+        }
+    </script>
+</body>
+</html>
