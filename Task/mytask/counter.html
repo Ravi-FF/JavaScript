@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-transform: capitalize;
+            color: white;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background: url(https://images.unsplash.com/photo-1682685797365-41f45b562c0a?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)no-repeat center/cover;
+        }
+
+        .box {
+            display: flex;
+            width: 80%;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            height: 200px;
+            justify-content: space-around;
+            font-size: 30px;
+            box-shadow: 0 0 10px wheat;
+            border: 1px solid white;
+        }
+
+        .top-h1 {
+            position: absolute;
+            top: 50px;
+            font-size: 30px;
+        }
+
+        button {
+            padding: 12px 30px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: crimson;
+            border: none;
+            transition: 0.3s linear;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2 class="top-h1">Counter using javascript</h2>
+        <div class="box">
+            <h1>0</h1>
+            <h1>0</h1>
+            <h1>0</h1>
+        </div>
+        <button onclick="buttonClick()">start counter</button>
+    </section>
+</body>
+<script>
+    function buttonClick() {
+        let h1 = document.querySelectorAll("h1");
+        for (let i = 0; i < 100; i++) {
+            let counter = 0;
+            let startcounter = setInterval(() => {
+                counter++;
+                h1[i].innerHTML = counter;
+                if (counter === 100) {
+                    h1[i].innerHTML = counter + " +";
+                    clearInterval(startcounter);
+                }
+            }, 0.1);
+        }
+    }
+</script>
+
+</html>
