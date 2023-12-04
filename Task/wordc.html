@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 10px 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+         align-items: center;   
+         height: 100vh;
+        }
+        .container{
+            border: 2px solid black;
+            padding: 20px;
+        }
+        textarea{
+            width: 100%;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <textarea id="textarea" placeholder="write-here"></textarea>
+        <div>
+            <button onclick="wordCount()">Word-count</button>
+            <input type="text" id="length" placeholder="length">
+        </div>
+        <div>
+            <button onclick="wordCapital()">Word-capital</button>
+            <input type="text" id="capital" placeholder="capital">
+    
+        </div>
+        <div>
+            <button onclick="wordlower()">Word-lower</button>
+            
+            <input type="text" id="lower" placeholder="lower">
+        </div>
+        <div>
+            <button onclick="wordtrim()">Word-trim</button>
+            <input type="text" id="trim" placeholder="trim">
+    
+        </div>
+    </div>
+</body>
+<script>
+    function wordCount() {
+        let text = document.getElementById("textarea").value;
+        document.getElementById("length").value = text.length;
+    }
+    function wordCapital() {
+        let text = document.getElementById("textarea").value;
+        document.getElementById("capital").value = text.toUpperCase();
+    }
+    function wordlower() {
+        let text = document.getElementById("textarea").value;
+        document.getElementById("lower").value = text.toLowerCase();
+    }
+    function wordtrim() {
+        let text = document.getElementById("textarea").value;
+        let removespace =text.replace(/\s+/g, ' ');
+        document.getElementById("trim").value = removespace;
+    }
+</script>
+</html>
