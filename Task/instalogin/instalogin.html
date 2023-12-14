@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram login form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .form-wrapper form {
+            margin: 0 auto;
+            width: 340px;
+            border: 1px solid rgb(219, 219, 219);
+            border-radius: 5px;
+            padding: 30px 40px;
+        }
+
+        .form-wrapper .logo {
+            width: 200px;
+            margin: 0px auto;
+            margin-bottom: 20px;
+        }
+
+        .form-wrapper .logo img {
+            width: 100%;
+        }
+
+        .form-wrapper .input-box {
+            width: 100%;
+            height: 40px;
+            margin: 10px 0;
+            position: relative;
+            background-color: rgb(250, 244, 244);
+
+        }
+
+        .form-wrapper .input-box .left-span,
+        .form-wrapper .input-box .right-span {
+            position: absolute;
+            left: 0;
+            letter-spacing: 0.5px;
+            top: 0;
+            transition: 0.2s linear;
+            line-height: 40px;
+            margin-left: 10px;
+            font-size: 9px;
+        }
+
+        .form-wrapper .input-box .right-span {
+            left: 78%;
+            opacity: 1;
+            font-size: 12px;
+            cursor: pointer;
+            z-index: 50;
+        }
+
+
+
+        .form-wrapper .input-box input {
+            width: 100%;
+            border-radius: 3px;
+            border: 1px solid rgb(219, 219, 219);
+            outline: none;
+            position: relative;
+            z-index: 1;
+            padding-left: 10px;
+            height: 100%;
+            background-color: transparent;
+        }
+
+        .form-wrapper .log-btn {
+            height: 30px;
+        }
+
+        .form-wrapper .input-box input[type="button"] {
+            background-color: rgb(0, 149, 246);
+            border-radius: 7px;
+            color: white;
+            opacity: 0.5;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .or-p {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .or-p::after {
+            content: "";
+            background-color: rgb(219, 219, 219);
+            position: absolute;
+            width: 43%;
+            height: 1px;
+            top: 50%;
+            left: 0;
+        }
+
+        .or-p::before {
+            content: "";
+            background-color: rgb(219, 219, 219);
+            position: absolute;
+            width: 43%;
+            height: 1px;
+            top: 50%;
+            right: 0;
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        input:valid~.left-span {
+            transform: translatey(-11px);
+        }
+
+        input[type="password"]:valid~.right-span {
+            opacity: 1;
+        }
+
+        .form-wrapper .fb a {
+            font-size: 15px;
+            color: #385185;
+        }
+
+        .form-wrapper .forgot a {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .form-wrapper form:nth-child(2) {
+            margin-top: 10px;
+        }
+
+        .form-wrapper form:nth-child(2) p {
+            font-size: 13px;
+        }
+
+        .form-wrapper form:nth-child(2) span {
+            color: rgb(0, 149, 246);
+        }
+
+        .form-wrapper .two-img {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .google-play {
+            width: 340px;
+            margin: 0 auto;
+        }
+
+        .google-play p {
+            margin: 15px 0;
+        }
+
+        .form-wrapper .two-img .google-img {
+            width: 50%;
+            height: 50px;
+        }
+
+        .form-wrapper .two-img .google-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <form>
+                <div class="logo">
+                    <img src="./1658587465instagram-name-logo.png" alt="">
+                </div>
+                <div class="name-input input-box">
+                    <input type="text" required>
+                    <span class="left-span">Phone number, username or email address</span>
+                </div>
+                <div class="password-input input-box">
+                    <input type="password" required id="pasInput">
+                    <span class="left-span">Password</span>
+                    <span class="right-span" onclick="showPassword()" id="show-btn">Show</span>
+                </div>
+                <div class="log-btn input-box">
+                    <input type="button" value="Log in" id="log-btn">
+                </div>
+                <p class="or-p">or</p>
+                <div class="fb">
+                    <a
+                        href="https://www.facebook.com/login.php?skip_api_login=1&api_key=124024574287414&kid_directed_site=0&app_id=124024574287414&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fclient_id%3D124024574287414%26locale%3Den_GB%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignup%252F%26response_type%3Dcode%252Cgranted_scopes%26scope%3Demail%26state%3D%257B%2522fbLoginKey%2522%253A%25221cn9scxqzy3qf1b5fsl75yh71u4hbnprzskex5banxjax7jeri%2522%252C%2522fbLoginReturnURL%2522%253A%2522%252Ffxcal%252Fdisclosure%252F%253Fnext%253D%25252F%2522%257D%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D94c12020-0afa-44f8-935e-aa1fb3a255b8%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.instagram.com%2Faccounts%2Fsignup%2F%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%2522fbLoginKey%2522%253A%25221cn9scxqzy3qf1b5fsl75yh71u4hbnprzskex5banxjax7jeri%2522%252C%2522fbLoginReturnURL%2522%253A%2522%252Ffxcal%252Fdisclosure%252F%253Fnext%253D%25252F%2522%257D%23_%3D_&display=page&locale=en_GB&pl_dbl=0">Log
+                        in with Facebook</a>
+                </div>
+                <p class="forgot">
+                    <a href="https://www.instagram.com/accounts/password/reset/">Forgotten your password?</a>
+                </p>
+            </form>
+            <form action="">
+                <p>Don't have an account ? <a href="https://www.instagram.com/accounts/emailsignup/">Sing up</a></p>
+            </form>
+            <div class="google-play">
+                <p>Get the app</p>
+                <div class="two-img">
+                    <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3DFF117CE0-C9F8-4D35-ACA2-624E7062A0B9%26utm_campaign%3DloginPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge%26original_referrer%3Dhttps://www.google.com/&pli=1"
+                        class="google-img"><img src="./google-play.png" alt=""></a>
+                    <a href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1920%2C1020"
+                        class="google-img"><img src="./microsoft.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let passwordInput = document.getElementById("pasInput");
+    let Showbtn = document.getElementById("show-btn");
+    let logbtn = document.getElementById("log-btn")
+    let password = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    function showPassword() {
+        if (passwordInput.type === "password" && Showbtn.innerText === "Show") {
+            passwordInput.type = 'text'
+            Showbtn.innerText = "Hide"
+        } else if (password.test(passwordInput.value)) {
+            logbtn.style.opacity = "1"
+            passwordInput.type = 'password'
+            Showbtn.innerText = "Show"
+        }
+        else {
+            passwordInput.type = 'password'
+            Showbtn.innerText = "Show"
+            logbtn.style.opacity = "0.5"
+        }
+    }
+</script>
+
+</html>
