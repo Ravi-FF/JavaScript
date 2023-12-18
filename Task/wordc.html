@@ -71,7 +71,7 @@
     }
     function wordCount() {
         let text = document.getElementById("textarea").value;
-        let removespace = text.trim() .slice(/\s+/g," ").length;
+        let removespace =(text.trim().split(/\s+/).length);
         document.getElementById("Count").value = removespace;
     }
 </script>

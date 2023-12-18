@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+
+        button {
+            padding: 10px 50px;
+            margin-top: 40px;
+            background-color: rgb(31, 170, 225);
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            color: black;
+            cursor: pointer;
+            transition: 0.2s linear;
+        }
+        button:hover{
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button onclick=" changeColor()">Change Color</button>
+    <button onclick="autostart()">Continue</button>
+    <button onclick="clearInt()">Stop</button>
+</body>
+<script>
+    let colors = ["red", "blue", "yellow", "orange", "pink", "black", "purple", "teal", "skyblue","crimson"];
+    let box = document.querySelector("div");
+    let colorIndex = 0;
+    box.style.backgroundColor = colors[colorIndex]
+    function changeColor() {
+        if (colorIndex < colors.length) {
+            colorIndex++;
+            if (colorIndex == 4) {
+                if (confirm("Do you want to continue.......") === true) {
+                    colorIndex + 1;
+                } else {
+                    colorIndex = 0;
+                }
+            } else if (colorIndex == colors.length) {
+                alert("Slides are Ended......")
+            }
+        }
+        else {
+            colorIndex = 0
+        }
+        box.style.backgroundColor = colors[colorIndex];
+    }
+    let timer;
+    function autostart() {
+        timer = setInterval(() => {
+            if (colorIndex < colors.length) {
+                colorIndex++
+            } else {
+                colorIndex = 0
+            }
+            box.style.backgroundColor = colors[colorIndex];
+        }, 500)
+    }
+    function clearInt() {
+        clearInterval(timer)
+    }
+</script>
+
+</html>
