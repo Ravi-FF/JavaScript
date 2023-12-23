@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+
+<body>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1 data-number="2000">0+</h1>
+        <h1 data-number="5000">0+</h1>
+        <h1 data-number="6000">0+</h1>
+        <h1 data-number="10000">0+</h1>
+    </div>
+</body>
+<script>
+    let Values = document.querySelectorAll("h1");
+    let speed = 100;
+    let counter = 0;
+    for (let i = 0; i < Values.length; i++) {
+        const element = Values[i];
+        let datasetvalue = parseInt(element.dataset.number);
+        let headingText = parseInt(element.innerText)
+        let total = parseInt((datasetvalue / speed));
+        function startCounter() {
+            if (headingText < datasetvalue) {
+                headingText = headingText + total;
+                element.innerText = `${headingText}+`
+                setTimeout(startCounter, 10)
+            }
+        }
+        startCounter()
+    }
+</script>
+
+</html>
