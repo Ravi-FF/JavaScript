@@ -94,8 +94,10 @@
         let height = (document.getElementById("height").value) / 100;
         let Total = document.getElementById("totalBMI");
         let Category = document.getElementById("Category");
+
         // Bmi formula 
-        let result = weight / (height * height);
+
+        let result = parseFloat(weight / (height * height)).toFixed(1);
         Total.innerHTML = result;
         if (weight == "" || height == "") {
             alert("Please Enter Input Value....")
@@ -110,5 +112,7 @@
             Category.innerText = "obesity"
         }
     }
+
+    
 </script>
 </html>
