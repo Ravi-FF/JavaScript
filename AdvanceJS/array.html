@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array in Javascript</title>
+</head>
+
+<body>
+    <h1>Array in Javascript</h1>
+</body>
+<script>
+    const myarr = [10, true, 20, 30, 40, 50, "RAvi"];
+    console.log(myarr); // ['10', true, '20', '30', '40', '50']
+
+    // console.log(myarr.length);
+    //6
+
+    // console.log(myarr.indexOf(40));
+    // 4
+
+    // console.log(myarr , myarr.push(60));
+    //  ['10', true, '20', '30', '40', '50', '60'] ; add element in last
+
+    // console.log(myarr ,myarr.pop());
+    // ['10', true, '20', '30', '40', '50'] 60 ; remove element of last
+
+    // console.log(myarr ,myarr.shift());
+    // [true, '20', '30', '40', '50', '60'] 10; remove element of first ;
+
+    // console.log(myarr ,myarr.unshift(50));
+    // [true, '20', '30', '40', '50', '60'] 50; add element of first ;
+
+    // console.log(myarr.toString(),typeof(myarr.toString()) );
+    // 50,true,20,30,40,50,RAvi  string
+
+    // console.log(myarr.slice(0,6));
+    // console.log(myarr);
+    // slice me ye btate h ki hme element ko kaha se le kr kaha kr get krvana h lekin slice method me hm jo element ki index btate h vo vaha se start hota h lekin ending index se ek km tk ke elemt ko deta hai;
+
+    // console.log(myarr.splice(0,5)); 
+    //   console.log(myarr);
+    // splice bhi hme ye hi  btata h ki hme element ko kaha se le kr kaha kr get krvana h lekin splice method me hm jo range btate h vo vaha tk ke element get kr ke deta hu lekin splice hamre original array me changes kr leta hu splice kiye hue pure baat ko aaray me se remove kr deta h;
+
+    // console.log(myarr.includes(20));
+    // (true) because includes method hme hamre array me se element se find krke btata h agr vo element hmare element me include h to hme truedeta h otherwise false btata hai 
+
+    // console.log(myarr.join('hello'));
+    // (10hellotruehello20hello30hello40hello50helloRAvi) array ke hr element ke sath hm jo value btate h usko join kr deta h and retrun ek string deta h
+
+    // console.log(myarr.reverse()); 
+    //['RAvi', 50, 40, 30, 20, true, 10]; array ko reverse kr deta hai
+</script>
+
+</html>
