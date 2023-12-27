@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>object in javascript</title>
 </head>
+
 <body>
     <h1>object in javascript</h1>
 </body>
+<script>
+    let sym = Symbol("ravi")
+    myobj = {
+        name: "ravi",
+        age: 21,
+        islogin: true,
+        course: "frontend developer",
+        fun: function () {
+            console.log("hello")
+        },
+        myarry: [1, 2, 3],
+        [sym]: 'hello'
+    };
+    // console.log(myobj);
+    // console.log(myobj.name);
+    // console.log(myobj.age);
+    // console.log(myobj.fun());
+    // console.log(myobj.myarry);
+    // console.log(myobj[sym]);
+</script>
+
 </html>
