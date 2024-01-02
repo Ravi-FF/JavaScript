@@ -21,7 +21,7 @@
             padding: 10px;
         }
 
-        .form-wrapper form {
+        .form-wrapper {
             margin: 0 auto;
             width: 340px;
             border: 1px solid rgb(219, 219, 219);
@@ -41,7 +41,6 @@
 
         .form-wrapper .input-box {
             width: 100%;
-            height: 40px;
             margin: 10px 0;
             position: relative;
             background-color: rgb(250, 244, 244);
@@ -53,11 +52,11 @@
             position: absolute;
             left: 0;
             letter-spacing: 0.5px;
-            top: 0;
+            top: 50%;
+            transform: translatey(-50%);
             transition: 0.2s linear;
-            line-height: 40px;
             margin-left: 10px;
-            font-size: 9px;
+            font-size: 10px;
         }
 
         .form-wrapper .input-box .right-span {
@@ -66,6 +65,7 @@
             font-size: 12px;
             cursor: pointer;
             z-index: 50;
+            transition: top 0.5s ease-in, font-size 0.3s;
         }
 
 
@@ -77,21 +77,17 @@
             outline: none;
             position: relative;
             z-index: 1;
-            padding-left: 10px;
+            padding: 12px 10px;
             height: 100%;
             background-color: transparent;
         }
 
-        .form-wrapper .log-btn {
-            height: 30px;
-        }
-
-        .form-wrapper .input-box input[type="button"] {
+        .form-wrapper .input-box input[type="submit"] {
             background-color: rgb(0, 149, 246);
             border-radius: 7px;
             color: white;
             opacity: 0.5;
-            height: 100%;
+            padding: 5px;
             cursor: pointer;
         }
 
@@ -126,11 +122,15 @@
         }
 
         input:valid~.left-span {
-            transform: translatey(-11px);
+            padding-bottom: 28px;
         }
 
-        input[type="password"]:valid~.right-span {
-            opacity: 1;
+        input:valid~.right-span {
+            visibility: visible;
+        }
+
+        .right-span {
+            visibility: hidden;
         }
 
         .form-wrapper .fb a {
@@ -141,45 +141,6 @@
         .form-wrapper .forgot a {
             font-size: 12px;
             margin-top: 10px;
-        }
-
-        .form-wrapper form:nth-child(2) {
-            margin-top: 10px;
-        }
-
-        .form-wrapper form:nth-child(2) p {
-            font-size: 13px;
-        }
-
-        .form-wrapper form:nth-child(2) span {
-            color: rgb(0, 149, 246);
-        }
-
-        .form-wrapper .two-img {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .google-play {
-            width: 340px;
-            margin: 0 auto;
-        }
-
-        .google-play p {
-            margin: 15px 0;
-        }
-
-        .form-wrapper .two-img .google-img {
-            width: 50%;
-            height: 50px;
-        }
-
-        .form-wrapper .two-img .google-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
     </style>
 </head>
@@ -192,16 +153,16 @@
                     <img src="./1658587465instagram-name-logo.png" alt="">
                 </div>
                 <div class="name-input input-box">
-                    <input type="text" required>
+                    <input type="text" required id="userInput" autocomplete="off">
                     <span class="left-span">Phone number, username or email address</span>
                 </div>
                 <div class="password-input input-box">
                     <input type="password" required id="pasInput">
                     <span class="left-span">Password</span>
-                    <span class="right-span" onclick="showPassword()" id="show-btn">Show</span>
+                    <span class="right-span" id="show-btn">Show</span>
                 </div>
                 <div class="log-btn input-box">
-                    <input type="button" value="Log in" id="log-btn">
+                    <input type="submit" value="Log in" id="log-btn">
                 </div>
                 <p class="or-p">or</p>
                 <div class="fb">
@@ -213,41 +174,36 @@
                     <a href="https://www.instagram.com/accounts/password/reset/">Forgotten your password?</a>
                 </p>
             </form>
-            <form action="">
-                <p>Don't have an account ? <a href="https://www.instagram.com/accounts/emailsignup/">Sing up</a></p>
-            </form>
-            <div class="google-play">
-                <p>Get the app</p>
-                <div class="two-img">
-                    <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3DFF117CE0-C9F8-4D35-ACA2-624E7062A0B9%26utm_campaign%3DloginPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge%26original_referrer%3Dhttps://www.google.com/&pli=1"
-                        class="google-img"><img src="./google-play.png" alt=""></a>
-                    <a href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1920%2C1020"
-                        class="google-img"><img src="./microsoft.png" alt=""></a>
-                </div>
-            </div>
         </div>
     </div>
 </body>
 <script>
     let passwordInput = document.getElementById("pasInput");
+    let userInput = document.getElementById("userInput")
     let Showbtn = document.getElementById("show-btn");
+    let form = document.querySelector("form")
     let logbtn = document.getElementById("log-btn")
     let password = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-    function showPassword() {
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+    })
+    Showbtn.addEventListener("click", function () {
         if (passwordInput.type === "password" && Showbtn.innerText === "Show") {
-            passwordInput.type = 'text'
-            Showbtn.innerText = "Hide"
-        } else if (password.test(passwordInput.value)) {
-            logbtn.style.opacity = "1"
-            passwordInput.type = 'password'
-            Showbtn.innerText = "Show"
+            passwordInput.type = 'text';
+            Showbtn.innerText = "Hide";
+        }
+        else if (password.test(passwordInput.value)) {
+            logbtn.style.opacity = "1";
+            passwordInput.type = 'password';
+            Showbtn.innerText = "Show";
         }
         else {
-            passwordInput.type = 'password'
-            Showbtn.innerText = "Show"
-            logbtn.style.opacity = "0.5"
+            passwordInput.type = 'password';
+            Showbtn.innerText = "Show";
+            logbtn.style.opacity = "0.5";
         }
-    }
+    })
 </script>
 
 </html>
