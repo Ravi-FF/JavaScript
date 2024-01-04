@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreateElement Using javascript</title>
+</head>
+<style>
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: capitalize;
+        text-align: center;
+    }
+
+    button {
+        padding: 8px 20px;
+    }
+</style>
+
+<body>
+    <h1>Create element in javascript</h1>
+    <button id="createbtn">Create Element</button>
+    <button id="removebtn">Remove Element</button>
+    <div></div>
+</body>
+<script>
+    let createButton = document.getElementById("createbtn")
+    let removeButton = document.getElementById("removebtn")
+    let element;
+    createButton.addEventListener("click", function () {
+        element = document.createElement("p");
+        let text = document.createTextNode("This is a Created Element");
+        element.appendChild(text);
+        document.querySelector("div").append(element)
+    })
+
+    removeButton.addEventListener("click", function () {
+        // let pera = document.querySelector("p")
+        // if (pera == null) {
+        //     alert("can not remove element before create element")
+        // } else {
+        //     pera.remove()
+
+        // }
+        // document.querySelector('p').remove()
+        element.remove()
+    })
+
+    //  function removebtn() {
+    // console.log(element)
+    //  }
+</script>
+
+</html>

@@ -9,41 +9,60 @@
         * {
             margin: 0;
             padding: 0;
-            font-size: 30px;
             box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
         }
 
         body {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             background-color: gray;
         }
 
         ul li {
-            /* text-decoration: none; */
             list-style: none;
+        }
+
+        input {
+            margin: 10px 0;
+            height: 40px;
+            width: 500px;
+            padding: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        p {
+            font-size: 18px;
         }
     </style>
 </head>
 
 <body>
-    <!-- <form action=""> -->
-        <input type="text">
-    <!-- </form> -->
+    <!-- <div> -->
+        <input type="text"> <br>
+        <div></div>
+    <!-- </div> -->
 </body>
 <script>
-        let input = document.querySelector("input");
-        let form = document.querySelector("form")
-     input.addEventListener("blur",function() {
-        if (input.value=="") {
-            let element = document.createElement("span")
+    let input = document.querySelector("input");
+    let form = document.querySelector("form")
+    input.addEventListener("blur", function () {
+        let element;
+        if (input.value == "") {
+            element = document.createElement("p")
             let spanText = document.createTextNode(" Please Enter value")
             element.appendChild(spanText)
-            document.body.appendChild(element)
+            document.querySelector("div").appendChild(element)
+        } else {
+            let a = document.querySelector("p")
+            a.remove()
         }
-     })
+    })
 </script>
 
 </html>
