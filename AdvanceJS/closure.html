@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure in javascript</title>
+</head>
+
+<body>
+    <h1>Closure in Javascript</h1>
+    <button id="orangeColor">Orange</button>
+    <button id="redColor">Red</button>
+    <button id="blueColor">blue</button>
+</body>
+<script>
+    // closure = jub hm outer function ko bnate h and uske ander kisi inner function ko bnate h tb us inner function ke paas us outer function ka refrence bhi hota h esi ko closure bolte hai 
+
+    function outerFunction() {
+        let x = "this is a outer Function"
+        function innerFunction() {
+            console.log(x);
+        }
+        innerFunction();
+    }
+    outerFunction();
+
+    const colorChange = color =>{
+        return  ()=>{
+            document.body.style.backgroundColor = color;
+        }
+    }
+    document.getElementById("orangeColor").onclick = colorChange("orange");
+    document.getElementById("redColor").onclick = colorChange("red");
+    document.getElementById("blueColor").onclick = colorChange("blue");
+</script>
+
+</html>

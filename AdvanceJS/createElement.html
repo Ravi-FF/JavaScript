@@ -20,36 +20,23 @@
 
 <body>
     <h1>Create element in javascript</h1>
-    <button id="createbtn">Create Element</button>
-    <button id="removebtn">Remove Element</button>
+    <button onclick="createbtn()">Create Element</button>
+    <button onclick="removebtn()">Remove Element</button>
     <div></div>
 </body>
 <script>
-    let createButton = document.getElementById("createbtn")
-    let removeButton = document.getElementById("removebtn")
+
     let element;
-    createButton.addEventListener("click", function () {
+    let createbtn = () => {
         element = document.createElement("p");
         let text = document.createTextNode("This is a Created Element");
         element.appendChild(text);
         document.querySelector("div").append(element)
-    })
+    }
 
-    removeButton.addEventListener("click", function () {
-        // let pera = document.querySelector("p")
-        // if (pera == null) {
-        //     alert("can not remove element before create element")
-        // } else {
-        //     pera.remove()
-
-        // }
-        // document.querySelector('p').remove()
-        element.remove()
-    })
-
-    //  function removebtn() {
-    // console.log(element)
-    //  }
+    let removebtn = () => {
+        document.querySelector('p') == null ? alert("can not remove element before create element") : element.remove()
+    }
 </script>
 
 </html>
