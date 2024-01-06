@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure with settime out</title>
+</head>
+
+<body>
+    <h1>Closure with settime out</h1>
+</body>
+<script>
+    // case first 
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            console.log(i)
+        }, i * 2000)
+    }
+    // case second 
+    for (var i = 0; i < 5; i++) {
+        setTimeout(() => {
+            console.log(i)
+        }, i * 2000)
+    }
+
+    // 1 let(function scope/block scope variable) ke case me hamre pass hr baar new memory bnti to hmara loop ka result hr baar alg alg value deta hai 
+    // 2 var (global scope) var jo hota h usme reinitilization possible hota hai us vajha se var ke liye hr baar new memory create nhi hoti h so that hamre paas ek hi value aati h and vo hi value jitni baar loop chalta h utni baar vo value repat hoti rehti hai 
+</script>
+
+</html>

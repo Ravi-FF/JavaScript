@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" value="12" id="day">
+    <input type="number" value="02">
+    <input type="number" value="2022" id="year">
+    <button onclick="reverse()">reverse</button>
+</body>
+<script>
+    function reverse() {
+        let day = document.getElementById("day");
+        let year = document.getElementById("year");
+        let reverse = 0;
+        reverse = day.value;
+        day.value = year.value
+        year.value = reverse;
+    }
+</script>
+
+</html>
