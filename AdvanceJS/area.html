@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const redius = [2, 3, 4, 5, 7, 8]
+    const calculate = function () {
+        let result = [];
+        for (let index = 0; index < redius.length; index++) {
+            let element = redius[index];
+            let x = Math.floor(2 * Math.PI * element)
+            result.push(x);
+        }
+        return result;
+    }
+    console.log(calculate())
+    // calculate()
+</script>
+
+</html>
