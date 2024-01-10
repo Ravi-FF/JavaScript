@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher order function in javascript</title>
+</head>
+
+<body>
+    <h1>Higher order function in javascript</h1>
+</body>
+<script>
+    //HOF = A higher order function is a function that takes one or more functions as arguments, or returns a function as its result. There are several different types of higher order functions like map and reduce. 
+
+    let radius = [2, 4, 5, 6];
+
+    // // circle area 
+    // let = circleRadius(circleR)=> {
+    //     let allRedius = [];
+    //     for (let i = 0; i < circleR.length; i++) {
+    //         allRedius.push((Math.PI * circleR[i] * circleR[i]).toFixed(2))
+    //     }
+    //     return allRedius;
+    // }
+    // console.log(circleRadius(radius));
+
+
+    // // circle diameter 
+    // let diameter = (radius) => {
+    //     let allRedius = [];
+    //     for (let i = 0; i < radius.length; i++) {
+    //         allRedius.push((2 * radius[i]).toFixed(2))
+    //     }
+    //     return allRedius;
+    // }
+    // console.log(diameter(radius));
+
+
+    // // circle Circumference
+    // let Circumference = (radius) => {
+    //     let allRedius = [];
+    //     for (let i = 0; i < radius.length; i++) {
+    //         allRedius.push((2 *Math.PI *radius[i]).toFixed(2))
+    //     }
+    //     return allRedius;
+    // }
+    // console.log(Circumference(radius));
+
+
+    // with the help of Higher order function we can easyly get our answer 
+    let area = (radius) => {
+        return Math.PI * radius * radius;
+    }
+
+    let diameter = (radius) => {
+        return (2 * radius)
+    }
+    let Circumference = (radius) => {
+        return 2 * Math.PI * radius
+    }
+    let calculatorCircle = (radius, logic) => {
+        let allRedius = [];
+        for (let i = 0; i < radius.length; i++) {
+            allRedius.push(logic(radius[i]).toFixed(2))
+        }
+        return allRedius;
+    }
+    console.log(calculatorCircle(radius, area))
+    console.log(calculatorCircle(radius, diameter))
+    console.log(calculatorCircle(radius, Circumference))
+</script>
+
+</html>
