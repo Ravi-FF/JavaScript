@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Map() method in javascript</h1>
+</body>
+<script>
+
+    // The map() method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.
+
+    let array = [2, 3, 4, 6, 8, 25];
+    // let blankarray=[];
+    // for (let i= 0; i<array.length; i++) {
+    //     blankarray.push(array[i]*2);
+    // }
+    // console.log(blankarray); 
+
+
+    const output = array.map((a) => a * 2)
+    console.log(output);
+
+
+    const triple = array.map((a) => {
+        return a * 3
+    })
+    console.log(triple);
+
+    // binary number 
+
+    let binary = array.map((a) => {
+        return a.toString(2)
+    })
+    console.log(binary)
+
+</script>
+
+</html>

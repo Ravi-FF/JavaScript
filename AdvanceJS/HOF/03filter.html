@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter method in javascript</title>
+</head>
+
+<body>
+    <h1>filter method in javascript</h1>
+</body>
+<script>
+    // The filter() method of Array instances creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
+    let array1 = [2, 3, 4, 5, 7, 8]
+    let number = array1.filter((num) => {
+        return num > 2;
+    }
+    );
+    console.log(number);
+
+    let array2 = ["ravi", "ravi", "frontend", "web", "developer", "ravi"];
+
+    const output = array2.filter((name) => (name == "ravi"))
+    console.log(output)
+</script>
+
+</html>
