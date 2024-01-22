@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(101, 134, 116);
+        align-items: center;
+    }
+
+    .container {
+        width: 50%;
+        box-shadow: 0 0 10px white;
+        padding: 50px 0;
+    }
+
+    h1 {
+        font-size: 80px;
+    }
+
+    .minispan {
+        font-size: 20px;
+        margin-left: 20px;
+    }
+
+    .buttons-box {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .buttons-box button {
+        padding: 8px 50px;
+        border-top-right-radius: 10px;
+        border: 1px solid black;
+        border-bottom-left-radius: 10px;
+        color: white;
+        font-size: 15px;
+        letter-spacing: 1px;
+        transition: 0.5s linear;
+    }
+
+    .buttons-box button:hover {
+        opacity: 0.9;
+    }
+
+    .buttons-box button:nth-child(1) {
+        background-color: rgb(71, 200, 71);
+    }
+
+    .buttons-box button:nth-child(2) {
+        background-color: rgba(33, 33, 220, 0.608);
+    }
+
+    .buttons-box button:nth-child(3) {
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>
+            <span id="hours">00</span><span class="minispan">hr</span>
+            <span id="min">00</span><span class="minispan">min</span>
+            <span id="sec">00</span><span class="minispan">sec</span>
+            <span id="milisec">00</span><span class="minispan">milisec</span>
+        </h1>
+        <div class="buttons-box">
+            <button onclick="start()">Start</button>
+            <button onclick="stopWatch()">Stop</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+    </div>
+</body>
+<script>
+    let hours = document.getElementById("hours");
+    let min = document.getElementById("min")
+    let sec = document.getElementById("sec")
+    let milisec = document.getElementById("milisec");
+    let ms = 0;
+    let s = 0;
+    let m = 0;
+    let h = 0;
+    let counter = 0
+    let interval;
+    let startWatch = () => {
+        counter++;
+        if (counter > 99) {
+            s++;
+            counter = 0;
+        }
+        if (s == 60) {
+            m++;
+            s = 0;
+        }
+        if (m == 60) {
+            h++;
+            m = 0
+            s = 0
+        }
+        let hrstring = h
+        let minstring = m
+        let secstring = s
+        let cstring = counter
+        if (cstring < 10) {
+            cstring = "0" + cstring
+        }
+        if (secstring < 10) {
+            secstring = "0" + secstring
+        }
+        if (minstring < 10) {
+            minstring = "0" + minstring
+        }
+        if (hrstring < 10) {
+            hrstring = "0" + hrstring
+        }
+        milisec.innerText = cstring;
+        sec.innerText = secstring;
+        min.innerText = minstring
+        hours.innerText = hrstring;
+    }
+    let start = () => {
+        interval = setInterval(startWatch, 10);
+    }
+    let stopWatch = () => {
+        clearInterval(interval)
+    }
+    let reset = () => {
+        ms = 0;
+        s = 0;
+        m = 0;
+        h = 0;
+        milisec.innerText = "00";
+        sec.innerText = "00";
+        min.innerText = "00"
+        hours.innerText = "00";
+    }
+</script>
+
+</html>
