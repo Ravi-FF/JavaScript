@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    .task-input {
+        width: 200px;
+    }
+</style>
+</head>
+<body>
+<h2>To-Do List</h2>
+<form id="todo-form">
+    <input type="text" id="task" class="task-input" placeholder="Enter task">
+    <button type="submit">Add Task</button>
+</form>
+<ul id="todo-list"></ul>
+
+<script>
+    const todoList = document.getElementById('todo-list');
+    const todoForm = document.getElementById('todo-form');
+
+    // Function to create a new task item
+    function createTask(taskContent) {
+        const li = document.createElement('li');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = taskContent;
+        input.disabled = true;
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                li.style.textDecoration = 'line-through';
+            } else {
+                li.style.textDecoration = 'none';
+            }
+        });
+
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+
+        editButton.addEventListener('click', function() {
+            input.disabled = !input.disabled;
+            if (!input.disabled) {
+                input.focus();
+            }
+        });
+
+        deleteButton.addEventListener('click', function() {
+            li.remove();
+        });
+
+        li.appendChild(input);
+        li.appendChild(checkbox);
+        li.appendChild(editButton);
+        li.appendChild(deleteButton);
+        todoList.appendChild(li);
+    }
+
+    // Function to handle form submission
+    todoForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const taskInput = document.getElementById('task');
+        const taskContent = taskInput.value.trim();
+        if (taskContent !== '') {
+            createTask(taskContent);
+            taskInput.value = '';
+        }
+    });
+</script>
+</body>
+</html>

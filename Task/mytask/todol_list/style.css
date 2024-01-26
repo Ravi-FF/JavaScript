@@ -1,14 +1,15 @@
 * {
     margin: 0;
     padding: 0px;
-    text-transform: capitalize;
     box-sizing: border-box;
     letter-spacing: 1px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-body{
+
+body {
     background-color: lightblue;
 }
+
 .main-wrapper {
     display: flex;
     justify-content: center;
@@ -103,17 +104,6 @@ input[type="checkbox"] {
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    text-align: center;
-}
-
-.clickbtn {
-    padding: 10px 30px;
-    font-size: 15px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: crimson;
-    position: relative;
-    z-index: 10;
 }
 
 input[type="checkbox"] {
@@ -124,24 +114,6 @@ button {
     border: none;
     color: white;
     cursor: pointer;
-}
-
-.clickbtn::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "";
-    z-index: -1;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: navy;
-    width: 0;
-    height: 100%;
-    transition: 0.3s linear;
-}
-
-.clickbtn:hover.clickbtn::after {
-    width: 100%;
 }
 
 .main div:nth-child(1) {
@@ -158,10 +130,12 @@ button {
 .container .top-div {
     margin: 10px 0;
 }
-.container .top-div span{
+
+.container .top-div span {
     margin-left: 30px;
     color: red;
 }
+
 @media screen and (max-width:1400px) {
     .container {
         width: 60%;

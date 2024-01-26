@@ -1,25 +1,22 @@
-let first = document.querySelector("#firstinput")
-let span = document.querySelector("span")
-first.addEventListener("keypress", (event) => {
+let first = document.querySelector("#firstinput");
+let span = document.querySelector("span");
+first.addEventListener("keypress", function (event) {
     if (event.key == "Enter") {
-        clickFun();
+        if (this.value == "") {
+            alert("please enter value");
+            span.innerHTML = ""
+        }
+        else {
+            clickFun()
+            if (!this.value == "") {
+                this.value = ""
+            }
+        }
     }
 })
 let clickFun = () => {
     let input = document.querySelector("#firstinput");
     let pera;
-    if (input.value == "") {
-        alert("please enter value")
-        return;
-    }
-    let checkinput = document.querySelectorAll(".show_res");
-    for (const iterator of checkinput) {
-        if (iterator.value == input.value) {
-            span.innerText = "*value already exists"
-        } else {
-            span.innerText = ""
-        }
-    }
     let ul = document.querySelector("ul");
     pera = document.createElement("li");
     let text = `<input type="checkbox" class="check" onchange="checkoneBox(this)">
@@ -31,11 +28,17 @@ let clickFun = () => {
                 <i class="fa-solid fa-trash delete" onclick="delete_Fun(this)"></i>
             </div>`
     pera.innerHTML = text;
+    let checkinput = document.querySelectorAll(".show_res");
+    for (const iterator of checkinput) {
+        if (iterator.value == input.value) {
+            span.innerText = "*value already exists.....!"
+            return;
+        } else {
+            span.innerText = ""
+        }
+    }
     ul.append(pera);
     pera.querySelector(".check").checked = true;
-    if (!input.value == "") {
-        input.value = ""
-    }
 }
 
 let edit_Fun = (getitem) => {
@@ -45,9 +48,11 @@ let edit_Fun = (getitem) => {
     getli.focus();
     getli.hasAttribute("disabled") ? getCheck.checked = true : getCheck.checked = false
 }
+
 let delete_Fun = (getitem) => {
     let getli = getitem.parentElement.parentElement;
     getli.remove()
+    span.innerHTML = ""
 }
 
 let checkoneBox = (getInput) => {
@@ -83,6 +88,6 @@ let deleteAll = () => {
     for (const iterator of inputes) {
         iterator.remove()
     }
-    span.innerText=""
+    span.innerText = ""
     firstCheck.checked = false;
 }
