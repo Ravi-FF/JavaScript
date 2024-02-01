@@ -1,19 +1,20 @@
-let first = document.querySelector("#firstinput");
 let span = document.querySelector("span");
-first.addEventListener("keypress", function (event) {
+
+let funRun = (event) => {
     if (event.key == "Enter") {
-        if (this.value == "") {
+        if (event.target.value == "") {
             alert("please enter value");
             span.innerHTML = ""
         }
         else {
             clickFun()
-            if (!this.value == "") {
-                this.value = ""
+            if (!event.target.value == "") {
+                event.target.value = ""
             }
         }
     }
-})
+}
+
 let clickFun = () => {
     let input = document.querySelector("#firstinput");
     let pera;
@@ -60,6 +61,7 @@ let checkoneBox = (getInput) => {
     input.toggleAttribute("disabled")
     input.focus();
 }
+
 let topBox = (getbox) => {
     let boxes = document.querySelectorAll(".check");
     let inputes = document.querySelectorAll(".show_res");
@@ -82,6 +84,7 @@ let topBox = (getbox) => {
 
     }
 }
+
 let deleteAll = () => {
     let inputes = document.querySelectorAll("li");
     let firstCheck = document.querySelector("#firstbox")
