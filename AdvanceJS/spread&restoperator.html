@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest and spread</title>
+</head>
+
+<body>
+    <h1 style="font-family: cursive;">Rest and Spread Operator in Javascript</h1>
+</body>
+<script>
+    // spread operator
+
+    let arr1 = [1, 2, 3, 4, 5, 22, 33];
+    let arr2 = [1, 24, 5, 4];
+
+    // with the help of without spread operator 
+    let WithoutSpread = arr1.concat(arr2);
+    console.log(WithoutSpread);
+
+    // with the help of spread operator
+    let withSpread = [...arr1, ...arr2];
+    console.log(withSpread);
+
+    function SpreadFun(elem) {
+        // with the help the spred operator we can easyly access our big arrary and do same task with our arrary for example now i can sum all of number with the help of loop 
+
+        let sum = 0;
+        for (let i = 0; i < elem.length; i++) {
+            sum += elem[i]
+        }
+        return sum;
+    }
+    console.log(SpreadFun(withSpread))
+
+    let x = withSpread.reduce((acc, current) => {
+        return acc + current
+    }, 0)
+    console.log(x)
+</script>
+
+</html>
