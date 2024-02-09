@@ -39,6 +39,23 @@
         return acc + current
     }, 0)
     console.log(x)
+
+
+    // rest operator in javascript 
+
+    // rest operator hamre element ko ek array me lata hai rest operator ka use hm function ke perameter me krte h rest oper ki help se hm infinate arugment le le skte h 
+
+    // ------------------------without rest operator--------------------------------
+    function withoutRest(elm1, elm2, elm3) {
+        console.log(elm1, elm2, elm3)
+    }
+    withoutRest(1, 2, 3)
+
+    function withrestFunction(a, ...rest) { //rest perameter ko hamre last me rakhte h otherwise hmeerror milta hai
+        let value = rest.reduce((acc, current) => acc + current)
+        return value
+    }
+    console.log(withrestFunction("ravi", 400, 10, 50, 50))
 </script>
 
 </html>
