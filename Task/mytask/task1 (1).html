@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+            font-family: cursive;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            background-color: navy;
+        }
+
+        .container {
+            width: 30%;
+        }
+
+        p {
+            font-size: 25px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 30px 0;
+            font-size: 20px;
+            color: black;
+            border-radius: 10px;
+            border: 1px solid black;
+            outline: none;
+            width: 100%;
+        }
+
+        button {
+            margin-bottom: 20px;
+            color: black;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 5px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Enter a guess between 0 to 10</p>
+        <input type="number" placeholder="Enter value....!"> <br>
+        <button class="submit-btn">Submit</button>
+        <button disabled class="start-btn">Start Game</button>
+        <p>Your Message :
+            <span class="message"></span>
+        </p>
+        <p>Your gusess :
+            <span class="numbers"></span>
+        </p>
+    </div>
+</body>
+<script>
+    let inputValue = document.querySelector("input")
+    let message = document.querySelector(".message")
+    let start_btn = document.querySelector(".start-btn")
+    let submit_btn = document.querySelector(".submit-btn")
+    let showNum = document.querySelector(".numbers")
+    let arr = []
+    submit_btn.addEventListener(("click"), () => {
+        if (inputValue.value === "") {
+            message.innerHTML = "Please Enter Input value..!"
+        } else if (parseInt(inputValue.value) > 100) {
+            message.innerHTML = "Input value is very high"
+        } else if (parseInt(inputValue.value) < 0) {
+            message.innerHTML = "Input value is very low"
+        }
+        else {
+            rendomNumber()
+        }
+        inputValue.value = ""
+    })
+
+    let rendomNumber = () => {
+        let number = Math.floor(Math.random() * 10 + 1)
+        if (parseInt(inputValue.value) === number) {
+            message.innerHTML = "Congrats....!"
+            submit_btn.setAttribute("disabled", true)
+            start_btn.removeAttribute("disabled")
+        } else if (parseInt(inputValue.value) > number) {
+            message.innerHTML = "Your value is very high"
+        } else if (parseInt(inputValue.value) < number) {
+            message.innerHTML = "Your value is very low"
+        }
+        arr.push(number)
+        showNum.innerHTML = arr
+    }
+    start_btn.addEventListener(("click"), () => {
+        start_btn.setAttribute("disabled", true)
+        submit_btn.removeAttribute("disabled")
+        message.innerHTML = ""
+        showNum.innerHTML = ""
+    })
+</script>
+
+</html>
