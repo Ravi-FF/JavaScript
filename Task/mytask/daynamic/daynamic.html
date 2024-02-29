@@ -52,57 +52,57 @@
 
     let obj = [
         {
-            src: "/banner1.jpg",
+            src: "./banner1.jpg",
             h2Text: "image1"
         },
         {
-            src: "/banner2.jpg",
+            src: "./banner2.jpg",
             h2Text: "image 2"
         },
         {
-            src: "/banner3.jpg",
+            src: "./banner3.jpg",
             h2Text: "image 3"
         },
         {
-            src: "/banner4.jpg",
+            src: "./banner4.jpg",
             h2Text: "image 4"
         },
         {
-            src: "/c1.jpg",
+            src: "./c1.jpg",
             h2Text: "image 5"
         },
         {
-            src: "/c2.jpg",
+            src: "./c2.jpg",
             h2Text: "image 6"
         },
         {
-            src: "/c3.jpg",
+            src: "./c3.jpg",
             h2Text: "image 7"
         },
         {
-            src: "/c4.jpg",
+            src: "./c4.jpg",
             h2Text: "image 8"
         },
         {
-            src: "/c5.jpg",
+            src: "./c5.jpg",
             h2Text: "image 9"
         },
 
         {
-            src: "/c6.jpg",
+            src: "./c6.jpg",
             h2Text: "image 10"
         },
     ]
-    for (let i = 0; i < obj.length; i++) {
+    obj.forEach((value) => {
         let elm = document.createElement("div")
         elm.classList.add("box")
         elm.innerHTML = `<div class="box-img">
-                <img src="${obj[i].src}" alt="">
+                <img src="${value.src}" alt="">
                 </div>
-                <h2>${obj[i].h2Text}</h2>
+                <h2>${value.h2Text}</h2>
                 `
         container.append(elm)
-    }
+    })
 </script>
 
 </html>
