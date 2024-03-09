@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CallBack hell and Promise</title>
+</head>
+
+<body>
+  <h1 class="heading-1">Hello</h1>
+  <h1 class="heading-2">Hello</h1>
+  <h1 class="heading-3">Hello</h1>
+  <h1 class="heading-4">Hello</h1>
+  <h1 class="heading-5">Hello</h1>
+  <h1 class="heading-6">Hello</h1>
+  <h1 class="heading-7">Hello</h1>
+  <h1 class="heading-8">Hello</h1>
+  <script>
+
+    // function myFun(element, clr, time, success) {
+    //   setTimeout(() => {
+    //     element.style.color = clr
+    //     success()
+    //   }, time)
+    // }
+    // myFun(document.querySelector(".heading-1"), "red", 1000, () => {
+    //   myFun(document.querySelector(".heading-2"), "blue", 2000, () => {
+    //     myFun(document.querySelector(".heading-3"), "blue", 2000, () => {
+    //       myFun(document.querySelector(".heading-4"), "blue", 2000, () => {
+    //         myFun(document.querySelector(".heading-5"), "blue", 2000, () => {
+    //           myFun(document.querySelector(".heading-6"), "blue", 2000, () => {
+    //             myFun(document.querySelector(".heading-7"), "blue", 2000, () => {
+
+    //             })
+    //           })
+    //         })
+    //       })
+    //     })
+    //   })
+    // })
+
+    // setTimeout(() => {
+    //   document.querySelector(".heading-1").style.color = "red"
+    //   setTimeout(() => {
+    //     document.querySelector(".heading-2").style.color = "red"
+    //     setTimeout(() => {
+    //       document.querySelector(".heading-3").style.color = "red"
+    //       setTimeout(() => {
+    //         document.querySelector(".heading-4").style.color = "red"
+    //         setTimeout(() => {
+    //           document.querySelector(".heading-5").style.color = "red"
+    //           setTimeout(() => {
+    //             document.querySelector(".heading-6").style.color = "red"
+    //           }, 1000)
+    //         }, 1000)
+    //       }, 1000)
+    //     }, 1000)
+    //   }, 1000)
+    // }, 5000)
+    let h1 = document.querySelector('.heading-1')
+    let h2 = document.querySelector('.heading-2')
+    let h3 = document.querySelector('.heading-3')
+    function promiseme(element, time) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (element) {
+            console.log(element, "ravi")
+            resolve()
+          }
+          // console.log(clr)
+          // element.style.color = "red"
+        }, time)
+      })
+    }
+    let x = promiseme(h1, 1000)
+    x.then(() => {
+      return promiseme(h2, 1000)
+    }).then(() => {
+      return promiseme(h3, 1000)
+    })
+  </script>
+</body>
+
+</html>
