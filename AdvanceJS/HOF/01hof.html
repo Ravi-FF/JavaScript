@@ -59,9 +59,9 @@
     let Circumference = (radius) => {
         return 2 * Math.PI * radius
     }
-    let calculatorCircle = (radius, logic) => {
+    let calculatorCircle = (radius, logic) =>{
         let allRedius = [];
-        for (let i = 0; i < radius.length; i++) {
+        for (let i = 0; i < radius.length; i++){
             allRedius.push(logic(radius[i]).toFixed(2))
         }
         return allRedius;
