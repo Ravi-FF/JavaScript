@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: cursive;
+            text-align: center;
+        }
+
+        body {
+            padding-top: 50px;
+            background-color: wheat;
+        }
+
+        button {
+            margin-top: 40px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>
+            <span id="hour"></span>
+            <span id="min"></span>
+            <span id="sec"></span>
+            <span id="am_pm"></span>
+        </h1>
+        <h1 id="result"></h1>
+        <button id="start">Start Task</button>
+        <button id="end">End Task</button>
+    </div>
+    <script>
+        function GetTime() {
+            let hour = document.querySelector("#hour")
+            let min = document.querySelector("#min")
+            let sec = document.querySelector("#sec")
+            let am_pm = document.querySelector('#am_pm')
+            let result = document.querySelector("#result")
+            am_pm.innerHTML = "PM"
+            let date = new Date
+            let CurrentHour = date.getHours();
+            let Currentmin = date.getMinutes();
+            let Currentsec = date.getSeconds();
+
+            (Currentsec < 10) ? sec.innerHTML = "0" + Currentsec : sec.innerHTML = Currentsec;
+
+            (Currentmin < 10) ? min.innerHTML = "0" + Currentmin : min.innerHTML = Currentmin;
+            if (CurrentHour > 12) {
+                CurrentHour = CurrentHour - 12
+            }
+            (CurrentHour < 10) ? hour.innerHTML = "0" + CurrentHour : hour.innerHTML = CurrentHour;
+
+            if (CurrentHour >= 12) {
+                am_pm.innerHTML = "PM"
+            }
+            if (result.innerHTML == "") {
+                if ((CurrentHour == 12 || CurrentHour <= 4) && (am_pm.innerHTML == "PM")) {
+                    result.innerHTML = "Dophar"
+                } else if ((CurrentHour >= 5) && (am_pm.innerHTML == "PM")) {
+                    result.innerHTML = "Good Evening"
+                } else if ((CurrentHour >= 8) && (am_pm.innerHTML == "PM")) {
+                    result.innerHTML = "Good Afternoon"
+                } else if ((CurrentHour >= 12) && (am_pm.innerHTML == "AM")) {
+                    result.innerHTML = "Good night"
+                }
+            }
+
+        }
+        document.querySelector("#start").addEventListener("click", (e) => {
+            setInterval(GetTime, 1000)
+            e.target.setAttribute("disabled", true)
+        })
+        document.querySelector("#end").addEventListener("click", (e) => {
+            window.location.reload()
+        })
+
+    </script>
+</body>
+
+</html>
