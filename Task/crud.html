@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 8px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" class="nameInput" placeholder="Enter your name"> <br>
+    <input type="text" class="subjectInput" placeholder="Enter your subject"> <br>
+    <input type="text" class="cityInput" placeholder="Enter your city"> <br>
+    <input type="hidden" class="hiddenValue">
+    <button class="clickBtn">Submit</button>
+    <div class="showData"></div>
+
+    <script>
+        let array = [];
+        let btn = document.querySelector(".clickBtn");
+        let result = document.querySelector(".showData");
+        let hidden = document.querySelector(".hiddenValue");
+
+        btn.addEventListener("click", () => {
+            let name = document.querySelector(".nameInput").value.trim();
+            let subject = document.querySelector(".subjectInput").value.trim();
+            let city = document.querySelector(".cityInput").value.trim();
+            let record = { name, subject, city };
+
+            let index = hidden.value;
+            if (index !== "") {
+                array[index] = record;
+                hidden.value = "";
+            } else {
+                array.push(record);
+            }
+
+            showData();
+            btn.innerHTML = "Submit";
+        });
+
+        function showData() {
+            result.innerHTML = "";
+            let table = `
+                <table border="">
+                    <tr>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>City</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                `;
+
+            array.forEach((item, index) => {
+                table += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.subject}</td>
+                        <td>${item.city}</td>
+                        <td><button onclick="handleEdit(${index})">Edit</button></td>
+                        <td><button onclick="handleDelete(${index})">Delete</button></td>
+                    </tr>
+                `;
+            });
+
+            result.innerHTML = table + "</table>";
+        }
+
+        function handleEdit(index) {
+            let record = array[index];
+            document.querySelector(".nameInput").value = record.name;
+            document.querySelector(".subjectInput").value = record.subject;
+            document.querySelector(".cityInput").value = record.city;
+            hidden.value = index;
+            btn.innerHTML = "Update";
+        }
+
+        function handleDelete(index) {
+            array.splice(index, 1);
+            showData();
+        }
+    </script>
+</body>
+
+</html>
